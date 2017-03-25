@@ -1,4 +1,6 @@
-FROM php:7.1-cli
+# Latest PHP
+FROM php:cli
+LABEL maintainer "khughes.me@gmail.com"
 
 WORKDIR /app
 

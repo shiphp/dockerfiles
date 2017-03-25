@@ -27,7 +27,7 @@ docker run --name mysql --rm -d -e MYSQL_ROOT_PASSWORD=testing -p 3306:3306 mysq
 docker exec -d mysql mysql -uroot -ptesting -e 'CREATE DATABASE testing;'
 ```
 
-Run mssql server
+Run mssql server - Not working for me yet.
 ```
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=testing' -p 1433:1433 -d microsoft/mssql-server-linux
 ```
@@ -35,10 +35,10 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=testing' -p 1433:1433 -d microsoft
 Run tests
 ```
 # Postgres
-docker run --link postgres -v $(pwd):/app --rm shiphp/phpunit phpunit tests/tests.php
+docker run --link postgres -v $(pwd):/app --rm karllhughes/phpunit phpunit tests/tests.php
 # Mysql
-docker run --link mysql -v $(pwd):/app --rm shiphp/phpunit phpunit tests/tests.php
+docker run --link mysql -v $(pwd):/app --rm karllhughes/phpunit phpunit tests/tests.php
 # Sqlite
-docker run -v $(pwd):/app --rm shiphp/phpunit phpunit tests/tests.php
+docker run -v $(pwd):/app --rm karllhughes/phpunit phpunit tests/tests.php
 ```
 

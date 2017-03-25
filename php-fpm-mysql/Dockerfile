@@ -1,5 +1,6 @@
 # Dockerfile
 FROM php:fpm
+LABEL maintainer "khughes.me@gmail.com"
 
 # Install linux dependencies
 RUN apt-get update && apt-get install -y \

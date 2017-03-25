@@ -1,4 +1,5 @@
 FROM alpine:latest
+LABEL maintainer "khughes.me@gmail.com"
 
 USER root
 
