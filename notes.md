@@ -42,3 +42,20 @@ docker run --link mysql -v $(pwd):/app --rm karllhughes/phpunit phpunit tests/te
 docker run -v $(pwd):/app --rm karllhughes/phpunit phpunit tests/tests.php
 ```
 
+## DigitalOcean Docker Server Setup
+
+- Create a [one-click deploy Docker droplet on DigitalOcean](https://cloud.digitalocean.com/droplets/new?i=dfa741&size=1gb&region=nyc3&appId=23219584&type=applications&options=private_networking,ipv6) and SSH into the server.
+- Create an RSA key and add it to Git repository: `ssh-keygen -t rsa && tail ~/.ssh/id_rsa.pub`
+- Upgrade docker-compose: 
+  - `curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > ./docker-compose`
+  - `sudo mv ./docker-compose /usr/local/bin/docker-compose`
+  - `chmod +x /usr/local/bin/docker-compose`
+- Get the latest node: `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
+  - Install it: `sudo apt-get install -y nodejs`
+  
+OR
+  
+- Get the latest PHP and composer:
+  - `sudo apt-get update && sudo apt-get install -y curl php-cli php-mbstring git unzip`
+  - `cd ~ && curl -sS https://getcomposer.org/installer -o composer-setup.php`
+  - `sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer`
