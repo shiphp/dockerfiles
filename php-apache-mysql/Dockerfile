@@ -44,5 +44,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-source delete
 
+RUN a2enmod rewrite && /etc/init.d/apache2 restart
+
 ## Add the code
 VOLUME /var/www/html
