@@ -16,7 +16,7 @@ docker build -t karllhughes/php-fpm-mysql ./php-fpm-mysql
 
 ### PHPUnit
 
-A php-cli container for running unit tests with mysql and pgsql included.
+A phpunit container for running unit tests with MySQL included.
 
 ```bash
 docker build -t karllhughes/phpunit ./phpunit
