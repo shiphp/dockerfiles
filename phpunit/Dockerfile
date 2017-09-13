@@ -1,5 +1,5 @@
 # Latest PHP
-FROM karllhughes/php-fpm-mysql
+FROM shiphp/php-fpm-mysql
 LABEL maintainer "khughes.me@gmail.com"
 
 # Install phpunit for testing purposes
