@@ -1,5 +1,5 @@
 # Dockerfile
-FROM php:fpm
+FROM php:7.3-fpm
 LABEL maintainer "khughes.me@gmail.com"
 
 # Install linux dependencies
@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
     libgmp-dev \
     libicu-dev \
     libmcrypt-dev \
-    libpng12-dev \
     libpspell-dev \
     libreadline-dev \
     libsnmp-dev \
@@ -30,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     libxslt1-dev \
     libpq-dev \
     libjpeg62-turbo-dev \
+    libzip-dev \
     mysql-client \
     mcrypt \
     re2c \
@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y \
 ## Install PHP extensions
 RUN docker-php-source extract \
     && docker-php-ext-install pdo pdo_mysql \
-    && docker-php-ext-install -j$(nproc) iconv mcrypt zip \
+    && docker-php-ext-install -j$(nproc) iconv zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-source delete
